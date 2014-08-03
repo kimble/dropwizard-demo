@@ -44,3 +44,7 @@ run {
 artifacts {
     buildStandaloneJar
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
