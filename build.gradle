@@ -1,0 +1,46 @@
+apply plugin: 'java'
+apply plugin: 'gradle-one-jar'
+apply plugin: 'application'
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+mainClassName = 'com.developerb.dropwizarddemo.DemoApplication'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+project.ext {
+    dropwizardVersion = '0.7.1'
+}
+
+dependencies {
+    compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion,
+            'io.dropwizard:dropwizard-assets:' + dropwizardVersion,
+            'io.dropwizard:dropwizard-client:' + dropwizardVersion,
+            'io.dropwizard:dropwizard-views-freemarker:' + dropwizardVersion
+}
+
+// Configure the oneJar task
+task buildStandaloneJar(type: com.github.rholder.gradle.task.OneJar) {
+    mainClass = mainClassName
+}
+
+run {
+    args 'server', './sample-config.yml'
+}
+
+artifacts {
+    buildStandaloneJar
+}
