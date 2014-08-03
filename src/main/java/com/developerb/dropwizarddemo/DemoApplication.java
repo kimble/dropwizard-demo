@@ -29,6 +29,8 @@ public class DemoApplication extends Application<AppConfig> {
                 .using(configuration.getHttpClientConfiguration())
                 .build("http-client");
 
+        environment.healthChecks().register("able-to-download-html", new DemoHealthCheck(client, configuration.targetUri));
+
         environment.jersey().register (
                 new DemoResource(client, new URI(configuration.targetUri))
         );
