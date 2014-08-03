@@ -11,13 +11,12 @@ All this application does is to download a page over http (uri configured in `sa
     cd dropwizard-demo
     ./gradlew run 
     
-Make some requests by reloading http://localhost:8080/
+Make some requests by reloading [http://localhost:8080/](http://localhost:8080/)
 
 
 Instrumentation
 ---------------
-Dropwizard comes with a built-in instrumentation for Jetty, Logback and the JVM itself. Have a look at the metrics by navigating to
-`http://localhost:8081/metrics?pretty=true`. 
+Dropwizard comes with a built-in instrumentation for Jetty, Logback and the JVM itself. Have a look at the metrics by navigating to [http://localhost:8081/metrics?pretty=true](http://localhost:8081/metrics?pretty=true). 
 
 Please consult the [Metrics documentation](http://metrics.codahale.com/manual/core/#man-core-gauges) in order to learn more about the different kinds of metrics available. 
 
@@ -36,4 +35,4 @@ Just a few examples:
  * Remote services can be reached
 
 
-Navigate to http://localhost:8081/healthcheck to have a look at what this looks like. 
+Navigate to [http://localhost:8081/healthcheck](http://localhost:8081/healthcheck) to have a look at what this looks like. 
